@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import PortfolioApp from './PortfolioApp.tsx';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/portfolio">
     <PortfolioApp />
   </BrowserRouter>,
 )
