@@ -14,7 +14,7 @@ export const aboutData = {
         institution: "Universidad de la Empresa (UDE)",
         website: "https://ude.edu.uy/",
         period: "2021 — 2026",
-        logo: "/UDE logo.png"
+        logo: `${import.meta.env.BASE_URL}UDE logo.png`
     },
 
     experience: {

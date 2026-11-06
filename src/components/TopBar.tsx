@@ -1,25 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar() { 
-    return ( 
-        <nav className="w-full px-8 py-6"> 
-            <div className="flex items-center justify-between"> {/* Navigation links */} 
-                <Link to="/" className="font-serif text-2xl italic text-white" > Portfolio </Link> 
-                <div className="flex items-center gap-8 text-white"> 
-                    <Link to="/projects" className="transition-opacity hover:opacity-60"> Projects </Link> 
-                    <Link to="/about" className="transition-opacity hover:opacity-60" > About </Link> 
-                    
-                    
-                    <a href="/#technologies" className="transition-opacity hover:opacity-60">
+export default function Navbar() {
+    const navigate = useNavigate();
+
+    const goToSection = (section: string) => {
+        navigate(`/#${section}`);
+
+        setTimeout(() => {
+            document.getElementById(section)?.scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 100);
+    };
+
+    return (
+        <nav className="w-full px-8 py-6">
+            <div className="flex items-center justify-between">
+
+                <Link to="/" className="font-serif text-2xl italic text-white">
+                    Portfolio
+                </Link>
+
+                <div className="flex items-center gap-8 text-white">
+
+                    <Link to="/projects">
+                        Projects
+                    </Link>
+
+                    <Link to="/about">
+                        About
+                    </Link>
+
+                    <button onClick={() => goToSection("technologies")}>
                         Technologies
-                    </a>
-                    
-                    <a href="/#contact" className="transition-opacity hover:opacity-60">
-                        Contact Me
-                    </a>
+                    </button>
 
-                </div> {/* Logo */} 
-            </div> 
-        </nav> 
-    ); 
+                    <button onClick={() => goToSection("contact")}>
+                        Contact Me
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+    );
 }
