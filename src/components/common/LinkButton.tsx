@@ -1,0 +1,20 @@
+import type { ReactNode } from "react"
+import { Link } from "react-router-dom"
+
+interface LinkButtonProps{
+    to: string,
+    className?: string,
+    children: ReactNode
+}
+
+export default function LinkButton({to = "/",className="",children} : LinkButtonProps){
+
+    return (
+        <Link
+            to={to}
+            className={className}
+        > 
+            {children}
+        </Link>
+    )
+}
